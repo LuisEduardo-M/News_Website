@@ -33,7 +33,7 @@ const Articles = () => {
     const readLater = () => {
         const newsList = localStorage.getItem("newsList");
         let savedNews = JSON.parse(newsList) || [];
-        const hasNews = savedNews.some((savedNews) => savedNews.title === news.title);
+        const hasNews = savedNews.some((savedNews) => savedNews === news);
 
         if (!hasNews) {
             savedNews.push(news);

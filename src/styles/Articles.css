@@ -1,10 +1,11 @@
 .news_container {
-    width: 300px;
+    height: 500px;
     overflow: hidden;
     box-shadow: 0 0 15px -5px;
     transition: 0.5s;
     animation: ease-in;
     margin: 2rem;
+    position: relative;
 }
 
 .news_container:hover {
@@ -30,6 +31,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .read_more {
@@ -37,7 +41,8 @@
     justify-content: center;
 }
 
-.read_more a, button {
+.read_more a,
+button {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.3rem;
