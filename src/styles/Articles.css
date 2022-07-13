@@ -26,12 +26,18 @@
     margin-bottom: .5rem;
 }
 
+.buttons_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .read_more {
     display: flex;
     justify-content: center;
 }
 
-.read_more a {
+.read_more a, button {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.3rem;

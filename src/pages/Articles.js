@@ -30,14 +30,28 @@ const Articles = () => {
         loadNews();
     }, [apiKey]);
 
+    const readLater = () => {
+        const newsList = localStorage.getItem("newsList");
+        let savedNews = JSON.parse(newsList) || [];
+        const hasNews = savedNews.some((savedNews) => savedNews.title === news.title);
+
+        if (!hasNews) {
+            savedNews.push(news);
+            localStorage.setItem("newsList", JSON.stringify(savedNews));
+        } else {
+            alert("You already saved this news!");
+            return;
+        }
+    }
+
     const renderNews = (
         <div className="container">
             <div className="row">
-                <h1 className="display-5 mt-3 mb-3">Articles Page</h1>
+                <h1 className="display-5 mt-3 mb-3">Latest Articles</h1>
 
-                {news.map(item => {
+                {news.map((item, index) => {
                     return (
-                        <div className="col-md-6 d-flex justify-content-evenly">
+                        <article key={index} className="col-md-6 d-flex justify-content-evenly">
                             <div className="news_container">
                                 <div className="image">
                                     <img className="img-fluid w-100" src={item.urlToImage} alt={item.title} />
@@ -51,12 +65,18 @@ const Articles = () => {
                                     <p>{item.description}</p>
                                 </div>
 
-                                <div className="read_more">
-                                    <a target="_blank" rel="noopener noreferrer" href={item.url}>Read more</a>
+                                <div className="buttons_container">
+                                    <div className="read_more">
+                                        <a target="blank" rel="noopener noreferrer" href={item.url}>Read more</a>
+                                    </div>
+
+                                    <div className="read_more">
+                                        <button onClick={readLater}>Read later</button>
+                                    </div>
                                 </div>
 
                             </div>
-                        </div>
+                        </article>
                     );
                 })}
             </div>
