@@ -14,6 +14,10 @@
     margin-top: .5rem;
 }
 
+.nav_items div {
+    margin-right: 2rem;
+}
+
 .nav_items a {
     cursor: pointer;
     text-decoration: none;
