@@ -24,26 +24,23 @@ const Articles = () => {
                     setError(error.message);
                     setIsLoading(false);
                 });
-            //console.log(response.data.articles.slice(0, 25));
             setNews(response.data.articles.slice(0, 26));
             setIsLoading(false);
         }
         loadNews();
     }, [apiKey]);
 
-    const readLater = () => {
+    const readLater = (index) => {
         const newsList = localStorage.getItem("newsList");
         let savedNews = JSON.parse(newsList) || [];
-        const hasNews = savedNews.some((savedNews) => savedNews === news);
+        const hasNews = savedNews.find(savedNews => savedNews.title === news[index].title);
 
-        if (!hasNews) {
-            savedNews.push(news);
+        if (hasNews) {
+            toast.error("News already saved");
+        } else {
+            savedNews.push(news[index]);
             localStorage.setItem("newsList", JSON.stringify(savedNews));
             toast.success("News saved to Read Later");
-        } else {
-            alert("You already saved this news!");
-            toast.warn("You already saved this news!");
-            return;
         }
     }
 
@@ -74,7 +71,7 @@ const Articles = () => {
                                     </div>
 
                                     <div className="read_more">
-                                        <button onClick={readLater}>Read later</button>
+                                        <button onClick={() => readLater(index)}>Read later</button>
                                     </div>
                                 </div>
 

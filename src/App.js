@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
     return (
         <div>
-            <ToastContainer autoClose={3000} />
+            <ToastContainer autoClose={1000} />
             <RoutesApp />
         </div>
     );

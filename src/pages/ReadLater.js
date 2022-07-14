@@ -30,9 +30,9 @@ const ReadLater = () => {
                     {news.map((item, index) => {
                         return (
                             <li key={index}>
-                                <h2>{item[index].title}</h2>
+                                <h2>{item.title}</h2>
                                 <div>
-                                    <a href={item[index].url}><button className="btn btn-primary">Read More</button></a>
+                                    <a target="blank" href={item.url}><button className="btn btn-primary">Read More</button></a>
                                     <button onClick={() => deleteSavedNews(index)} className='btn btn-danger'>Delete</button>
                                 </div> <hr />
                             </li>
