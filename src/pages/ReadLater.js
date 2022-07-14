@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import "./../styles/ReadLater.css";
 
@@ -17,6 +18,7 @@ const ReadLater = () => {
         });
         setNews(newsFilter);
         localStorage.setItem("newsList", JSON.stringify(newsFilter));
+        toast.success("News deleted from Read Later");
     }
 
     return (
@@ -28,7 +30,7 @@ const ReadLater = () => {
                     {news.map((item, index) => {
                         return (
                             <li key={index}>
-                                <h2>{item[index + 1].title}</h2>
+                                <h2>{item[index].title}</h2>
                                 <div>
                                     <a href={item[index].url}><button className="btn btn-primary">Read More</button></a>
                                     <button onClick={() => deleteSavedNews(index)} className='btn btn-danger'>Delete</button>

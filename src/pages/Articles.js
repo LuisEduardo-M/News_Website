@@ -4,6 +4,7 @@ import api from "../services/api";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./../styles/Articles.css";
+import { toast } from "react-toastify";
 
 const Articles = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -38,8 +39,10 @@ const Articles = () => {
         if (!hasNews) {
             savedNews.push(news);
             localStorage.setItem("newsList", JSON.stringify(savedNews));
+            toast.success("News saved to Read Later");
         } else {
             alert("You already saved this news!");
+            toast.warn("You already saved this news!");
             return;
         }
     }
