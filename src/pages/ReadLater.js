@@ -24,17 +24,17 @@ const ReadLater = () => {
     return (
         <div className='news_list'>
             <div className='container'>
-                <h1 className="display-5 mt-3 mb-3">Read Later</h1>
+                <h1 className="display-5 fw-bold mt-3 mb-3">Read Later</h1>
                 {news.length === 0 && <h1 className='d-flex justify-content-center display-4 align-content-center'>No news saved</h1>}
                 <ul>
                     {news.map((item, index) => {
                         return (
                             <li key={index}>
-                                <h2>{item.title}</h2>
-                                <div>
+                                <div className='mb-4'>
+                                    <h2>{item.title}</h2>
                                     <a target="blank" href={item.url}><button className="btn btn-primary">Read More</button></a>
                                     <button onClick={() => deleteSavedNews(index)} className='btn btn-danger'>Delete</button>
-                                </div> <hr />
+                                </div>
                             </li>
                         );
                     })}

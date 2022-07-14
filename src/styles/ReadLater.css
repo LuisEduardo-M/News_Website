@@ -1,21 +1,8 @@
-.news_list {
-    margin-top: 1rem
-}
-
-.news_list ul {
-    width: 720px;
-}
-
 .news_list ul li {
+    width: 720px;
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-}
-
-.news_list li div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

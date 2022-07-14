@@ -47,7 +47,7 @@ const Articles = () => {
     const renderNews = (
         <div className="container">
             <div className="row">
-                <h1 className="display-5 mt-3 mb-3">Latest Articles</h1>
+                <h1 className="display-5 fw-bold mt-3 mb-3">Latest Articles</h1>
 
                 {news.map((item, index) => {
                     return (
